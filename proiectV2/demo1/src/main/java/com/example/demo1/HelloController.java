@@ -44,7 +44,7 @@ public class HelloController {
     public void validateLogin() {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
-        String verifyLogin = "select Nume,Prenume,rol_user from utilizatori where CNP='"+cnpTextField.getText() + "' and parola='" + parolaPasswordField.getText()+ "'";
+        String verifyLogin = "select ID_Utilizator,Nume,Prenume,rol_user from utilizatori where CNP='"+cnpTextField.getText() + "' and parola='" + parolaPasswordField.getText()+ "'";
         try {
             Statement statement = connectDB.createStatement();
             ResultSet result = statement.executeQuery(verifyLogin);
