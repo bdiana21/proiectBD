@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e7f5fe;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.Pacient">
+    <children>
+        <Button fx:id="inapoiButton" layoutX="490.0" layoutY="340.0" mnemonicParsing="false" onAction="#inapoiButtonOnAction" prefHeight="36.0" prefWidth="95.0" style="-fx-background-color: #498fba;" text="Inapoi" textFill="WHITE">
+            <font>
+                <Font name="Bookman Old Style Bold" size="20.0" />
+            </font>
+        </Button>
+      <Button fx:id="BDPP" layoutX="93.0" layoutY="95.0" mnemonicParsing="false" onAction="#BDPPonAction" prefHeight="74.0" prefWidth="154.0" style="-fx-background-color: #498fba;" text="Date personale" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="BPP" layoutX="350.0" layoutY="95.0" mnemonicParsing="false" onAction="#BPPonAction" prefHeight="74.0" prefWidth="154.0" style="-fx-background-color: #498fba;" text="Programare" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="BRMP" layoutX="350.0" layoutY="214.0" mnemonicParsing="false" onAction="#BRMPonAction" prefHeight="74.0" prefWidth="154.0" style="-fx-background-color: #498fba;" text="Raport medical" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="BMDP" layoutX="93.0" layoutY="214.0" mnemonicParsing="false" onAction="#BMDPonAction" prefHeight="74.0" prefWidth="154.0" style="-fx-background-color: #498fba;" text="Modificare Date" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style Bold" size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="inapoiMeniuButton" layoutX="490.0" layoutY="21.0" mnemonicParsing="false" onAction="#inapoiMeniuButtonOnAction" prefHeight="36.0" prefWidth="95.0" style="-fx-background-color: #498fba;" text="Inapoi" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="numeLabel" layoutX="14.0" layoutY="21.0" prefHeight="36.0" prefWidth="263.0">
+         <font>
+            <Font name="Bookman Old Style" size="20.0" />
+         </font>
+      </Label>
+    </children>
+</AnchorPane>

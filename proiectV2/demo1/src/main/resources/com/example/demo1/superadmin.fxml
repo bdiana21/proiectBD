@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e7f5fe;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.Superadmin">
+   <children>
+      <Button fx:id="inapoiButton" layoutX="482.0" layoutY="333.0" mnemonicParsing="false" onAction="#inapoiButtonOnAction" prefHeight="36.0" prefWidth="95.0" style="-fx-background-color: #498fba;" text="Inapoi" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style Bold" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="BDPSUPADMIN" layoutX="44.0" layoutY="74.0" mnemonicParsing="false" onAction="#BDPSUPADMINonAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Date Personale" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="BMDPSUPADMIN" layoutX="44.0" layoutY="149.0" mnemonicParsing="false" onAction="#BMDPSUPADMINonAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Modificare Date Personale" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="BMDSSUPADMIN" layoutX="254.0" layoutY="149.0" mnemonicParsing="false" onAction="#BMDSSUPADMINonAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Modificare Date Sistem" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="BSDSSUPADMIN" layoutX="254.0" layoutY="223.0" mnemonicParsing="false" onAction="#BSDSSUPADMINonAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Stergere Date Sistem" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="BADSSUPADMIN" layoutX="254.0" layoutY="74.0" mnemonicParsing="false" onAction="#BADSSUPADMINonAction" prefHeight="50.0" prefWidth="180.0" style="-fx-background-color: #498fba;" text="Adaugare Date Sistem" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+         <font>
+            <Font name="Bookman Old Style Bold" size="14.0" />
+         </font>
+      </Button>
+      <Button fx:id="inapoiMeniuButton" layoutX="482.0" layoutY="24.0" mnemonicParsing="false" onAction="#inapoiMeniuButtonOnAction" prefHeight="36.0" prefWidth="95.0" style="-fx-background-color: #498fba;" text="Inapoi" textFill="WHITE">
+         <font>
+            <Font name="Bookman Old Style Bold" size="20.0" />
+         </font>
+      </Button>
+      <Label fx:id="numeLabel" layoutX="14.0" layoutY="24.0" prefHeight="36.0" prefWidth="263.0">
+         <font>
+            <Font name="Bookman Old Style" size="20.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
