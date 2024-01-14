@@ -27,7 +27,7 @@
                 <Font name="Bookman Old Style Bold" size="14.0" />
             </font>
         </Button>
-      <Button fx:id="BGRUDPR" layoutX="40.0" layoutY="149.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="143.0" style="-fx-background-color: #498fba;" text="Date Personale" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
+      <Button fx:id="BGRUDPR" layoutX="40.0" layoutY="149.0" mnemonicParsing="false" onAction="#BGRUDPROnAction" prefHeight="50.0" prefWidth="143.0" style="-fx-background-color: #498fba;" text="Date Personale" textAlignment="CENTER" textFill="#fcf7f7" wrapText="true">
          <font>
             <Font name="Bookman Old Style Bold" size="14.0" />
          </font>

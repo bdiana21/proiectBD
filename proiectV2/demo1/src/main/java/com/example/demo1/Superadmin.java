@@ -2,6 +2,8 @@ package com.example.demo1;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
@@ -27,11 +29,17 @@ public class Superadmin
     private Button inapoiMeniuButton;
     @FXML
     public Label numeLabel;
+    private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public void setUserData(ResultSet result) throws SQLException {
         String userNume = result.getString("Nume");
         String userPrenume = result.getString("Prenume");
         numeLabel.setText("User: " +userNume+" "+userPrenume);
+        setId(result.getInt("ID_Utilizator"));
     }
 
     public void inapoiButtonOnAction(ActionEvent e)
@@ -59,6 +67,7 @@ public class Superadmin
         hideButtonBDPSUPADMIN();
         inapoiMeniuButton.setVisible(true);
         inapoiButton.setVisible(false);
+        fereastraDatePersonale(id);
     }
 
     private void hideButtonBDPSUPADMIN()
@@ -137,5 +146,22 @@ public class Superadmin
         BMDPSUPADMIN.setVisible(!isBSDSSUPADMINPressed);
         BADSSUPADMIN.setVisible(!isBSDSSUPADMINPressed);
         BMDSSUPADMIN.setVisible(!isBSDSSUPADMINPressed);
+    }
+    public void fereastraDatePersonale(int id){
+        try{
+            FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("datePersonale.fxml"));
+            Scene scene = new Scene(date.load(), 1150, 148);
+            DatePersonale d = date.getController();
+            d.setID(id);
+            Stage stageDate= new Stage();
+            stageDate.setTitle("Date Personale");
+            stageDate.setScene(scene);
+
+            stageDate.show();
+
+        }catch(Exception e){
+            e.printStackTrace();
+            e.getCause();
+        }
     }
 }

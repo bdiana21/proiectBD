@@ -1,25 +1,24 @@
 package com.example.demo1;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
 
-public class Asistent {
+public class Asistent  {
 
     @FXML
     private Button inapoiButton;
-
     @FXML
     private Button BGRU;
     @FXML
@@ -44,18 +43,20 @@ public class Asistent {
     public Label numeLabel;
 
 
-    ResultSet rezultat;
+    private int id;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public void setUserData(ResultSet result) throws SQLException {
         String userNume = result.getString("Nume");
         String userPrenume = result.getString("Prenume");
         numeLabel.setText("User: " +userNume+" "+userPrenume);
-        rezultat=result;
-
+        setId(result.getInt("ID_Utilizator"));
     }
-    public void BGRUDPAOnAction(ActionEvent e){
-
-        fereastraDatePersonale(rezultat);
-
+    public void BGRUDPAOnAction(ActionEvent e)throws SQLException{
+        fereastraDatePersonale(id);
     }
 
     public void inapoiButtonOnAction(ActionEvent e)
@@ -64,12 +65,13 @@ public class Asistent {
         stage.close();
     }
 
-    public void inapoiMeniuButtonOnAction(ActionEvent e) throws InstantiationException, IllegalAccessException {
+    public void inapoiMeniuButtonOnAction(ActionEvent e) throws SQLException,InstantiationException, IllegalAccessException {
         initialize();
         inapoiButton.setVisible(true);
     }
 
-    public void initialize() throws InstantiationException, IllegalAccessException {
+    public void initialize() throws SQLException,InstantiationException, IllegalAccessException {
+
         hideButtonBGRU();
         hideButtonOFC();
         hideButtonBGAO();
@@ -129,15 +131,16 @@ public class Asistent {
         BOFC.setVisible(!isBGAOPressed);
     }
 
-    public void fereastraDatePersonale(ResultSet result ){
+    public void fereastraDatePersonale(int id){
         try{
             FXMLLoader date = new FXMLLoader(com.example.demo1.HelloApplication.class.getResource("datePersonale.fxml"));
-            Scene scene = new Scene(date.load(), 949, 148);
+            Scene scene = new Scene(date.load(), 1150, 148);
+            DatePersonale d = date.getController();
+            d.setID(id);
             Stage stageDate= new Stage();
             stageDate.setTitle("Date Personale");
             stageDate.setScene(scene);
-            DatePersonale d = date.getController();
-            d.setUserData(result);
+
             stageDate.show();
 
         }catch(Exception e){
@@ -146,4 +149,3 @@ public class Asistent {
         }
     }
 }
-

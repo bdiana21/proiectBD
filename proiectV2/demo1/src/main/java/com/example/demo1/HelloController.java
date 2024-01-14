@@ -12,6 +12,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
@@ -41,7 +42,7 @@ public class HelloController {
         stage.close();
     }
 
-    public void validateLogin() {
+   public void validateLogin() {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
         String verifyLogin = "select ID_Utilizator,Nume,Prenume,rol_user from utilizatori where CNP='"+cnpTextField.getText() + "' and parola='" + parolaPasswordField.getText()+ "'";
@@ -97,6 +98,7 @@ public class HelloController {
             stageAsistent.setTitle("Asistent");
             stageAsistent.setScene(scene);
             Asistent asis = asistent.getController();
+           // asis.setRezultat(result);
             asis.setUserData(result);
             stageAsistent.show();
 

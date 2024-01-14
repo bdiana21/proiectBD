@@ -4,23 +4,22 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="122.0" prefWidth="960.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.DatePersonale">
+<AnchorPane prefHeight="122.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.DatePersonale">
    <children>
-      <AnchorPane layoutX="10.0" layoutY="10.0" prefHeight="148.0" prefWidth="949.0">
+      <AnchorPane layoutY="14.0" prefHeight="148.0" prefWidth="974.0">
          <children>
-            <TableView fx:id="tabel" layoutY="35.0" prefHeight="78.0" prefWidth="925.0">
+            <TableView fx:id="tabel" layoutY="35.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="78.0" prefWidth="1150.0">
                <columns>
                   <TableColumn fx:id="tabelNume" prefWidth="75.0" text="NUME" />
                   <TableColumn fx:id="tabelPrenume" prefWidth="75.0" text="PRENUME" />
                   <TableColumn fx:id="tabelCNP" prefWidth="112.00006103515625" text="CNP" />
                   <TableColumn fx:id="tabelRol" prefWidth="76.800048828125" text="ROL" />
-                  <TableColumn fx:id="tabelEmail" prefWidth="112.0" text="EMAIL" />
-                  <TableColumn fx:id="tabelAdresa" minWidth="0.0" prefWidth="85.60000610351562" text="ADRESA" />
-                  <TableColumn fx:id="tabelTelefon" minWidth="0.0" prefWidth="85.60000610351562" text="TELEFON" />
-                  <TableColumn fx:id="tabelIban" minWidth="0.0" prefWidth="85.60000610351562" text="IBAN" />
-                  <TableColumn fx:id="tabelNrContract" minWidth="0.0" prefWidth="96.7999267578125" text="NR CONTRACT" />
-                  <TableColumn fx:id="tabelData" minWidth="0.0" prefWidth="119.9998779296875" text="DATA ANGAJARII" />
+                  <TableColumn fx:id="tabelEmail" prefWidth="176.79998779296875" text="EMAIL" />
+                  <TableColumn fx:id="tabelAdresa" minWidth="0.0" prefWidth="116.7999267578125" text="ADRESA" />
+                  <TableColumn fx:id="tabelTelefon" maxWidth="7000.0" minWidth="0.0" prefWidth="94.39990234375" text="TELEFON" />
+                  <TableColumn fx:id="tabelIban" minWidth="0.0" prefWidth="180.0" text="IBAN" />
+                  <TableColumn fx:id="tabelNrContract" minWidth="0.0" prefWidth="124.8001708984375" text="NR CONTRACT" />
+                  <TableColumn fx:id="tabelData" minWidth="0.0" prefWidth="115.19992675781259" text="DATA ANGAJARII" />
                </columns>
             </TableView>
          </children>

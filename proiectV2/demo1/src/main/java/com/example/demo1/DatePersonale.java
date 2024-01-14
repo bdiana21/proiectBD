@@ -1,67 +1,109 @@
 package com.example.demo1;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.net.URL;
+import java.sql.*;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class DatePersonale {
-    @FXML
-    private TableView tabel;
+    private int id;
+    public void setID(int id) throws SQLException {
+         this.id=id;
+        dateTabel(id);
+    }
 
     @FXML
-    private TableColumn tabelAdresa;
+    private TableView<DateAngajati> tabel;
 
     @FXML
-    private TableColumn tabelCNP;
+    private TableColumn<DateAngajati, String> tabelAdresa;
 
     @FXML
-    private TableColumn tabelData;
+    private TableColumn<DateAngajati, String> tabelCNP;
 
     @FXML
-    private TableColumn tabelEmail;
+    private TableColumn<DateAngajati, String> tabelData;
 
     @FXML
-    private TableColumn tabelIban;
+    private TableColumn<DateAngajati, String> tabelEmail;
 
     @FXML
-    private TableColumn tabelNrContract;
+    private TableColumn<DateAngajati, String> tabelIban;
 
     @FXML
-    private TableColumn tabelNume;
+    private TableColumn<DateAngajati, Integer> tabelNrContract;
 
     @FXML
-    private TableColumn tabelPrenume;
+    private TableColumn<DateAngajati, String> tabelNume;
 
     @FXML
-    private TableColumn tabelRol;
+    private TableColumn<DateAngajati, String> tabelPrenume;
 
     @FXML
-    private TableColumn tabelTelefon;
+    private TableColumn<DateAngajati, String> tabelRol;
 
-    public void setUserData(ResultSet result) throws SQLException {
-        int userID = result.getInt("ID_Utilizator");
-        String getData = "select Nume from utilizatori where ID_Utilizator=result.getInt(\"ID_Utilizator\")";
+    @FXML
+    private TableColumn<DateAngajati, String> tabelTelefon;
 
+    ObservableList<DateAngajati> listA= FXCollections.observableArrayList();
+
+
+    public void dateTabel(int id) throws SQLException {
         DatabaseConnection connectNow = new DatabaseConnection();
         Connection connectDB = connectNow.getConnection();
 
-        try {
-            Statement statement = connectDB.createStatement();
-            ResultSet result2 = statement.executeQuery(getData);
+        String getData = "select Nume, Prenume, CNP, rol_user, Email, Adresa, Telefon, Cont_IBAN, Numar_Contract, Data_Angajarii from utilizatori where ID_Utilizator=?";
 
-            while (result2.next()) {
-                String userNume = result2.getString("Nume");
-                tabelNume.setText(userNume);
+        try (PreparedStatement preparedStatement = connectDB.prepareStatement(getData)) {
+            preparedStatement.setInt(1, id); // Setăm valoarea pentru parametrul ID_Utilizator
+
+            try (ResultSet result2 = preparedStatement.executeQuery()) {
+
+                while (result2.next()) {
+                    String userNume = result2.getString("Nume");
+                    String userPrenume = result2.getString("Prenume");
+                    String userRol = result2.getString("rol_user");
+                    String userEmail = result2.getString("Email");
+                    String userAdresa = result2.getString("Adresa");
+                    String userData = result2.getString("Data_Angajarii");
+                    String userCNP = result2.getString("CNP");
+                    String userTelefon = result2.getString("Telefon");
+                    String userIban = result2.getString("Cont_IBAN");
+                    int userNrContract = result2.getInt("Numar_Contract");
+                    listA.add(new DateAngajati(userNume, userPrenume, userAdresa, userEmail, userRol, userCNP, userTelefon, userIban, userNrContract, userData));
+                }
+
+                tabelAdresa.setCellValueFactory(new PropertyValueFactory<>("adresa"));
+                tabelNume.setCellValueFactory(new PropertyValueFactory<>("nume"));
+                tabelPrenume.setCellValueFactory(new PropertyValueFactory<>("prenume"));
+                tabelRol.setCellValueFactory(new PropertyValueFactory<>("rol"));
+                tabelEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+                tabelCNP.setCellValueFactory(new PropertyValueFactory<>("CNP"));
+                tabelTelefon.setCellValueFactory(new PropertyValueFactory<>("nrTelefon"));
+                tabelIban.setCellValueFactory(new PropertyValueFactory<>("iban"));
+                tabelNrContract.setCellValueFactory(new PropertyValueFactory<>("nrContract"));
+                tabelData.setCellValueFactory(new PropertyValueFactory<>("data"));
+
+
+                tabel.setItems(listA);
+
+            } catch (SQLException e) {
+                Logger.getLogger(DatePersonale.class.getName()).log(Level.SEVERE, null, e);
+                e.printStackTrace();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
+
+        }
     }
+
+
 }
